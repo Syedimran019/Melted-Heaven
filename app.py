@@ -14,8 +14,8 @@ def home():
     video_sections_data = [
         {"id": "ice_cream_section", "video": "ice.mp4", "text_left": "Happiness is just", "text_right": "a bite of chocolate away.", "background_color": "#4A2C2A"},
         {"id": "apple_section", "video": "apple.mp4", "text_left": "Good vibes begin", "text_right": "with good yogurt.", "background_color": "#CD2B3F"},
-        {"id": "choco_section", "video": "choco.mp4", "text_left": "Two ingredients.<br>One unforgettable taste.", "text_right": "Walnuts & Milk Chocolate.", "background_color": "#4A2C2A"},
-        {"id": "berry_section", "video": "berry.mp4", "text_left": "Yogurt & Berries", "text_right": "The Duo Your Taste Buds Deserve.", "background_color": "#5D3E8E"},
+        {"id": "choco_section", "video": "choco.mp4", "text_left": "Two ingredients <br>One unforgettable taste.", "text_right": "Walnuts & Milk Chocolate.", "background_color": "#4A2C2A"},
+        {"id": "berry_section", "video": "berry.mp4", "text_left": "Yogurt & Berries", "text_right": "The Duo Your <br> Taste Buds Deserve.", "background_color": "#5D3E8E"},
         {"id": "biscuit_section", "video": "biscuit.mp4", "text_left": "Turning Every Bite", "text_right": "Into a Beautiful Moment.", "background_color": "#1A1A1A"},
     ]
     return render_template('home.html', video_sections_data=video_sections_data)

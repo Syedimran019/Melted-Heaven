@@ -1,0 +1,57 @@
+{% extends "base.html" %} {% block title %}About Us - Sweet Delights{% endblock
+%} {% block content %}
+<main>
+  <div class="about-container">
+    <h2>About Us</h2>
+    <div class="about-content">
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p><strong>Address:</strong> {{ contact_info.address }}</p>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:{{ contact_info.email }}">{{ contact_info.email }}</a>
+        </p>
+        <p>
+          <strong>Phone:</strong>
+          <a href="tel:{{ contact_info.phone }}">{{ contact_info.phone }}</a>
+        </p>
+      </div>
+
+      <div class="social-media">
+        <h3>Connect With Us</h3>
+        <div class="social-media-links">
+          <a href="{{ social_media.facebook }}" target="_blank"
+            ><img
+              src="{{ url_for('static', filename='images/icons/facebook-logo.webp') }}"
+              alt="Facebook"
+          /></a>
+          <a href="{{ social_media.instagram }}" target="_blank"
+            ><img
+              src="{{ url_for('static', filename='images/icons/insta logo.jpg') }}"
+              alt="Instagram"
+          /></a>
+          <a href="{{ social_media.twitter }}" target="_blank"
+            ><img
+              src="{{ url_for('static', filename='images/icons/X-logo.webp') }}"
+              alt="Twitter"
+          /></a>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <h3>Our Location</h3>
+        <iframe
+          src="{{ Maps_embed_url }}"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+        </iframe>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

@@ -1,13 +1,8 @@
 import os
 from flask import Flask, render_template, url_for, request
 
+# Create the Flask app instance
 app = Flask(__name__)
-
-# ... (your product data and routes remain the same) ...
-
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000)) # Get port from environment or default to 5000
-    app.run(host='0.0.0.0', port=port, debug=False) # Bind to 0.0.0.0 and use the dynamic port
 
 # Updated product data for the shop page with correct image paths and names
 products = [
@@ -16,13 +11,15 @@ products = [
     {"id": 3, "name": "Chocolate Cream Puff", "price": "₹220", "image": "choclate cream.webp", "description": "Delicious chocolate cream puffs, a delightful treat."},
 ]
 
+# --- Routes ---
+
 @app.route('/')
 def home():
     video_sections_data = [
         {"id": "ice_cream_section", "video": "ice.mp4", "text_left": "Happiness is just", "text_right": "a bite of chocolate away.", "background_color": "#4A2C2A"},
         {"id": "apple_section", "video": "apple.mp4", "text_left": "Good vibes begin", "text_right": "with good yogurt.", "background_color": "#CD2B3F"},
-        {"id": "choco_section", "video": "choco.mp4", "text_left": "Two ingredients <br>One unforgettable taste.", "text_right": "Walnuts & Milk Chocolate.", "background_color": "#4A2C2A"},
-        {"id": "berry_section", "video": "berry.mp4", "text_left": "Yogurt & Berries", "text_right": "The Duo Your <br> Taste Buds Deserve.", "background_color": "#5D3E8E"},
+        {"id": "choco_section", "video": "choco.mp4", "text_left": "Two ingredients.<br>One unforgettable taste.", "text_right": "Walnuts & Milk Chocolate.", "background_color": "#4A2C2A"},
+        {"id": "berry_section", "video": "berry.mp4", "text_left": "Yogurt & Berries", "text_right": "The Duo Your Taste Buds Deserve.", "background_color": "#5D3E8E"},
         {"id": "biscuit_section", "video": "biscuit.mp4", "text_left": "Turning Every Bite", "text_right": "Into a Beautiful Moment.", "background_color": "#1A1A1A"},
     ]
     return render_template('home.html', video_sections_data=video_sections_data)
@@ -43,8 +40,15 @@ def about():
         "instagram": "https://www.instagram.com/sweetdelights",
         "twitter": "https://www.twitter.com/sweetdelights"
     }
-    Maps_embed_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.00336060195!2d77.63385737482329!3d12.97194098735399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1642c38d4b31%3A0xf607a78e7c1d1a1b!2sIndiranagar%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" # Example valid embed URL
+    # Example valid embed URL for Indiranagar, Bengaluru.
+    # Replace with a real embed URL if possible, otherwise keep this as placeholder
+    Maps_embed_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.971032338668!2d77.6366050750734!3d12.975765987352342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae13d420f9c2d1%3A0x6b8d2a6a6f6f6f6f!2sIndiranagar%2C%20Bengaluru%2C%20Karnataka%20560038!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
     return render_template('about.html', contact_info=contact_info, social_media=social_media, Maps_embed_url=Maps_embed_url)
 
+# This block ensures the app runs when app.py is executed directly
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Get the port from Render's environment variable, default to 5000 for local development
+    port = int(os.environ.get("PORT", 5000))
+    # Run the Flask app, binding to all interfaces and using the dynamic port
+    # Set debug=False for production deployments
+    app.run(host='0.0.0.0', port=port, debug=False)

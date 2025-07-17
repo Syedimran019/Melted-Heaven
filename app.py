@@ -8,7 +8,7 @@ app = Flask(__name__)
 products = [
     {"id": 1, "name": "Creamy Yogurt Delight", "price": "₹120", "image": "yogurt.jpg", "description": "Smooth and creamy yogurt, perfect for a light snack."},
     {"id": 2, "name": "White Cream Dessert", "price": "₹180", "image": "white cream.jpg", "description": "Decadent white cream dessert, a sweet escape."},
-    {"id": 3, "name": "Chocolate Cream Puff", "price": "₹220", "image": "choclate cream.webp", "description": "Delicious chocolate cream puffs, a delightful treat."},
+    {"id": 3, "name": "Chocolate Cream Puff", "price": "₹220", "image": "choclate cream.webp", "description": "Delicious Chocolate Cream Puffs, a delightful treat."},
 ]
 
 # --- Routes ---
